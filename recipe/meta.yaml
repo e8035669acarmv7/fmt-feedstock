@@ -1,6 +1,6 @@
 {% set name = "fmt" %}
-{% set version = "10.1.1" %}
-{% set sha256 = "78b8c0a72b1c35e4443a7e308df52498252d1cefc2b08c9a97bc9ee6cfe61f8b" %}
+{% set version = "10.2.1" %}
+{% set sha256 = "1250e4cc58bf06ee631567523f48848dc4596133e163f02615c97f78bab6c811" %}
 
 package:
   name: {{ name|lower }}
@@ -34,12 +34,14 @@ test:
     - if not exist %LIBRARY_PREFIX%\include\fmt\format.h (exit 1)  # [win]
     - if not exist %LIBRARY_PREFIX%\lib\cmake\fmt\fmt-config.cmake (exit 1)  # [win]
     - if not exist %LIBRARY_PREFIX%\bin\fmt.dll (exit 1)  # [win]
+  downstreams:
+    - libmambapy
 
 about:
   home: https://fmt.dev/latest/
   license: MIT
   license_family: MIT
-  license_file: LICENSE.rst
+  license_file: LICENSE
   summary: '{fmt} is an open-source formatting library for C++'
   description: |
     {fmt} is an open-source formatting library for C++.
@@ -52,3 +54,4 @@ extra:
     - tdegeus
     - vitaut
     - saraedum
+    - bdice
